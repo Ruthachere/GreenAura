@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/cart.css" />
+    <title>Cart Page</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">GreenAura</div>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../html/shop.html">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Signup</a></li>
+          <li><a href="#">Login</a></li>
+          <li>
+            <a href="../html/cart.html">Cart</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="cart-section">
+          <!-- <h1>Your Cart</h1> -->
+          <div class="cart_container" id="cart_container"></div>
+          <div class="summary">
+            <div class="summary-total">
+              <span>TOTAL PRICE:</span>
+              <span id="total-price">$0</span>
+            </div>
+            <button class="buyBtn" id="buyBtn">Buy Now</button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="purchase-modal">
+          <button class="delete-btn">X</button>
+          <div class="purchase-content">
+            <h1>Your Purchase Was Successful!!</h1>
+            <p>Thank you for shopping with us. We appreciate your business!</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/cart.js"></script>
+  </body>
+</html>

@@ -149,7 +149,6 @@ function openPurchaseModal() {
     purchaseModal.classList.add('active');
   }
 }
-
 // Close modal function
 function closePurchaseModal() {
   purchaseModal.classList.remove('active');

@@ -61,8 +61,11 @@ li a {
   color: black;
 }
 .shop-container {
-  padding: 20px;
+  padding: 100px 20px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .product-slider {
@@ -72,6 +75,10 @@ li a {
   justify-content: center;
   align-items: center;
   gap: 40px;
+}
+.shop-container h2{
+  font-size: 40px;
+  text-align: center;
 }
 .product {
   display: flex;
@@ -150,4 +157,10 @@ li a {
 }
 .shop-intro-content p {
   font-size: 18px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
 }

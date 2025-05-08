@@ -134,7 +134,7 @@ if (selectedProduct) {
       // Save back to localStorage
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      alert(`${selectedProduct.name} successfully added to cart!`);
+      alert(`${selectedProduct.name} successfully added to cart! Check your Cart`);
     }
   });
 } else {

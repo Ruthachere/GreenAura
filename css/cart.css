@@ -60,16 +60,7 @@ li a {
   font-family: "Poppins";
   color: black;
 }
-/* body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  } */
+
 .cart-section {
   display: flex;
   flex-direction: column;
@@ -128,15 +119,6 @@ input {
   font-weight: 600;
 }
 
-.summary-total {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 30px;
-  border-top: 1px solid #eee;
-  padding-top: 20px;
-}
 
 .buyBtn {
   width: 100%;
@@ -149,15 +131,10 @@ input {
   margin-top: 20px;
   cursor: pointer;
 }
-.back-to-shop {
-  display: inline-block;
-  margin-top: 20px;
-  color: black;
-  text-decoration: none;
-}
-.input,
-select,
+
+
 button {
+  cursor: pointer;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -168,7 +145,7 @@ button {
   flex-direction: column;
   transform: translateY(-50%);
   transition: transform 0.5s ease-out;
-  /* transform: translateY(-100%); */
+
 }
 .purchase-modal {
   display: none;
@@ -182,8 +159,7 @@ button {
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   gap: 16px;
-  /* transform: translateY(-50%);
-  transition: transform 0.5s ease-out; */
+
 }
 
 .purchase-content {
@@ -196,7 +172,7 @@ button {
   text-align: center;
 }
 .purchase-content h1 {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 .delete-btn {
   display: flex;

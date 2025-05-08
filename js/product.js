@@ -141,7 +141,7 @@ if (selectedProduct) {
   product_container.innerHTML = "<p>Product not found.</p>";
 }
 
-
+ // Attach event to the "Add to Cart" button
 const buyNowBtn = document.querySelector(".buyNowBtn");
 buyNowBtn.addEventListener("click", () => {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];

@@ -135,7 +135,6 @@ buyButton.addEventListener('click', openPurchaseModal);
 deleteBtn.addEventListener('click', closePurchaseModal);
 
 // Open modal function
-// Open modal function
 function openPurchaseModal() {
   // Only proceed if there are items in the cart
   if (cart.length > 0) {

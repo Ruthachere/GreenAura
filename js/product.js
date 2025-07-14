@@ -126,7 +126,7 @@ if (selectedProduct) {
     const alreadyInCart = cart.some((item) => item.id === selectedProduct.id);
 
     if (alreadyInCart) {
-      alert(`${selectedProduct.name} cannot be added again.`);
+      alert(`${selectedProduct.name} has already be added to cart, Please kindly choose another product.`);
     } else {
       // Add the selectedProduct to the cart
       cart.push(selectedProduct);

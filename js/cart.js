@@ -47,60 +47,18 @@ function renderCart() {
     totalPriceElement.textContent = `$${total.toFixed(2)}`;
   } else {
     cart_container.innerHTML = "<p>Your cart is empty.</p>";
-    totalPriceElement.textContent = '$0.00'
+    totalPriceElement.textContent = "$0.00";
   }
 }
 
 // Initial render
 renderCart();
 
-// // Remove item functionality
-// document.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("remove-btn")) {
-//     const index = e.target.getAttribute("data-index");
 
-//     // Remove the item based on its index
-//     cart.splice(index, 1);
-
-//     // Save updated cart
-//     localStorage.setItem("cart", JSON.stringify(cart));
-
-//     // Re-render cart
-//     renderCart();
-//   }
-
-//   if (e.target.classList.contains("add-btn")) {
-//     const index = e.target.getAttribute("data-index");
-
-//     // Increase the quantity
-//     cart[index].quantity++;
-
-//     // Save updated cart
-//     localStorage.setItem("cart", JSON.stringify(cart));
-
-//     // Re-render cart
-//     renderCart();
-//   }
-
-//   if (e.target.classList.contains("subtract-btn")) {
-//     const index = e.target.getAttribute("data-index");
-
-//     // Decrease the quantity, but not below 1
-//     if (cart[index].quantity > 1) {
-//       cart[index].quantity--;
-//     }
-
-//     // Save updated cart
-//     localStorage.setItem("cart", JSON.stringify(cart));
-
-//     // Re-render cart
-//     renderCart();
-//   }
-// });
 // Click handling
 document.addEventListener("click", ({ target }) => {
   if (!target.dataset.index) return;
-  
+
   const index = Number(target.dataset.index);
   if (isNaN(index)) return;
 
@@ -126,13 +84,13 @@ document.addEventListener("click", ({ target }) => {
 });
 
 // Get DOM elements
-const buyButton = document.querySelector('.buyBtn'); 
-const purchaseModal = document.querySelector('.purchase-modal');
-const deleteBtn = document.querySelector('.delete-btn');
+const buyButton = document.querySelector(".buyBtn");
+const purchaseModal = document.querySelector(".purchase-modal");
+const deleteBtn = document.querySelector(".delete-btn");
 
 // Add event listeners
-buyButton.addEventListener('click', openPurchaseModal);
-deleteBtn.addEventListener('click', closePurchaseModal);
+buyButton.addEventListener("click", openPurchaseModal);
+deleteBtn.addEventListener("click", closePurchaseModal);
 
 // Open modal function
 function openPurchaseModal() {
@@ -141,16 +99,16 @@ function openPurchaseModal() {
     // Clear the cart
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
-    
+
     // Update the UI
     renderCart();
-    
+
     // Show the modal
-    purchaseModal.classList.add('active');
+    purchaseModal.classList.add("active");
   }
 }
 // Close modal function
 function closePurchaseModal() {
-  purchaseModal.classList.remove('active');
+  purchaseModal.classList.remove("active");
+   window.location.href = "shop.html";
 }
-

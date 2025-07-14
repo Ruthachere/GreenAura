@@ -126,7 +126,7 @@ if (selectedProduct) {
     const alreadyInCart = cart.some((item) => item.id === selectedProduct.id);
 
     if (alreadyInCart) {
-      alert(`${selectedProduct.name} has already be added to cart, Please kindly choose another product.`);
+      alert(`${selectedProduct.name} "This item is already in your cart 🛒. Please feel free to explore other amazing products! 😊"`);
     } else {
       // Add the selectedProduct to the cart
       cart.push(selectedProduct);
@@ -156,3 +156,13 @@ buyNowBtn.addEventListener("click", () => {
   window.location.href = "cart.html";
 });
 
+const productCart = document.querySelectorAll(".product");
+productCart.forEach((product) => {
+  product.addEventListener("click", () => {
+    const productId = product.id;
+    const selectedProduct = products.find((p) => p.id === productId);
+    if (selectedProduct) {
+      window.location.href = `product.html?id=${selectedProduct.id}`;
+    }
+  });
+});

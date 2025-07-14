@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/cart.css" />
     <title>Cart Page</title>
   </head>
@@ -25,7 +26,7 @@
     <main>
     
         <div class="cart-section">
-          <!-- <h1>Your Cart</h1> -->
+         <!-- This is the cart section -->
           <div class="cart_container" id="cart_container"></div>
           <div class="summary">
             <div class="summary-total">
@@ -38,7 +39,15 @@
       </section>
       <section>
         <div class="purchase-modal">
-          <button class="delete-btn">X</button>
+          <!-- This is the modal that appears after purchase -->
+          <div class="purchase-header">
+  <button class="delete-btn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+          <div class="check-btn">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          </div>
+          
+        
           <div class="purchase-content">
             <h1>Your Purchase Was Successful!!</h1>
             <p>Thank you for shopping with us. We appreciate your business!</p>

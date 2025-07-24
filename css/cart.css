@@ -21,12 +21,12 @@ p {
   line-break: auto;
   font-display: swap;
 }
-header{
+header {
   position: fixed;
   width: 100%;
-   top: 0;
+  top: 0;
   left: 0;
-  z-index: 1000; 
+  z-index: 1000;
 }
 body {
   position: relative;
@@ -46,8 +46,8 @@ body {
   padding: 20px 40px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-.logo a{
-  font-family: "Imperial Script" ;
+.logo a {
+  font-family: "Imperial Script";
   text-decoration: none;
   font-weight: 700;
   font-style: normal;
@@ -67,7 +67,7 @@ body {
 li a {
   text-decoration: none;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 22px;
   font-family: "Poppins";
   color: black;
 }
@@ -133,7 +133,6 @@ input {
   font-weight: 600;
 }
 
-
 .buyBtn {
   width: 100%;
   padding: 15px;
@@ -145,7 +144,6 @@ input {
   margin-top: 20px;
   cursor: pointer;
 }
-
 
 button {
   cursor: pointer;
@@ -159,7 +157,6 @@ button {
   flex-direction: column;
   transform: translateY(10%);
   transition: transform 0.5s ease-out;
-
 }
 .purchase-modal {
   display: none;
@@ -173,7 +170,6 @@ button {
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   gap: 12px;
-
 }
 
 .purchase-content {
@@ -206,7 +202,6 @@ button {
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
- 
 }
 .check-btn {
   display: flex;
@@ -216,14 +211,13 @@ button {
   align-self: center;
   width: 44px;
   height: 44px;
-  border-radius:12px;
+  border-radius: 12px;
   background-color: var(--primary-color);
   color: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid #9e9e9e;
 }
-
 
 .check-btn i {
   font-size: 24px;

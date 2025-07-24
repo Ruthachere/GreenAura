@@ -126,7 +126,7 @@ if (selectedProduct) {
     const alreadyInCart = cart.some((item) => item.id === selectedProduct.id);
 
     if (alreadyInCart) {
-      alert(`${selectedProduct.name} "This item is already in your cart 🛒. Please feel free to explore other amazing products! 😊"`);
+      alert(`${selectedProduct.name} "This item is already in your cart. Please feel free to explore other amazing products!!!"`);
     } else {
       // Add the selectedProduct to the cart
       cart.push(selectedProduct);
@@ -134,7 +134,7 @@ if (selectedProduct) {
       // Save back to localStorage
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      alert(`${selectedProduct.name} successfully added to cart! Check your Cart`);
+      alert(`${selectedProduct.name} successfully added to cart! Please kindly check your Cart`);
     }
   });
 } else {

@@ -14,7 +14,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", sans-serif;
   font-display: swap;
 }
 p {
@@ -68,7 +68,7 @@ body {
 li a {
   text-decoration: none;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 24px;
   font-family: "Poppins";
   color: black;
 }
@@ -90,11 +90,11 @@ li a {
   flex-direction: column;
   text-align: left;
   padding: 10px;
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
   height: 100%;
   justify-content: center;
-  gap: 24px;
+  gap: 28px;
 }
 .hero-content h1 {
   margin: 0;
@@ -103,8 +103,8 @@ li a {
 }
 
 .hero-content p {
-  line-height: 26px;
-  font-size: 18px;
+  line-height: 28px;
+  font-size: 20px;
 }
 .highlight {
   color: var(--primary-color);
@@ -161,7 +161,7 @@ li a {
 .shop-now a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -175,7 +175,7 @@ li a {
 }
 .categories h2 {
   margin: 0;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 600;
   color: var(--secondary-color);
 }
@@ -204,7 +204,8 @@ li a {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   width: 100%;
-  height: 400px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .category-item-content {
@@ -218,12 +219,12 @@ li a {
 .category-item-content h3 {
   color: var(--primary-color);
   font-weight: 500;
-  font-size: 24px;
+  font-size: 26px;
   text-align: center;
 }
 .category-item-content p {
   text-decoration: dotted;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /* Products */
@@ -234,7 +235,7 @@ li a {
   flex-direction: column;
 }
 .hot-products h2 {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 600;
 }
 
@@ -278,6 +279,7 @@ li a {
 }
 .product-details h4 {
   line-break: auto;
+  font-size: 20px;
 }
 .product-image {
   object-fit: contain;
@@ -324,7 +326,7 @@ li a {
 }
 
 .blog-header h2 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
   font-family: "Playfair Display";
 }
@@ -333,7 +335,7 @@ li a {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .blog-grid {
@@ -359,13 +361,13 @@ li a {
 }
 
 .blog-post .date {
-  font-size: 12px;
+  font-size: 14px;
   color: #999;
 }
 
 .blog-post h3 {
   font-family: "Playfair Display";
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .blog-post-details {
@@ -375,7 +377,7 @@ li a {
   gap: 12px;
 }
 .blog-post-details .excerpt {
-  font-size: 14px;
+  font-size: 15px;
   color: #555;
 }
 

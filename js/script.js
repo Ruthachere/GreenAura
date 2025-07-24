@@ -25,3 +25,12 @@ prevBtn.addEventListener('click', () => {
 
     slider.style.transform = `translateX(-${activeSlider * scrollStep}px)`;
 });
+
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+var x = document.getElementById("demo");
+x = "Browser width: " + w + ", height: " + h + ".";
+console.log(x);
+
+

@@ -102,6 +102,9 @@ const selectedProduct = products.find(function (product) {
 const product_container = document.getElementById("product_container");
 
 if (selectedProduct) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const alreadyInCart = cart.some((item) => item.id === selectedProduct.id);
+
   product_container.innerHTML = `
     <div class='product-content'>
       <img src="${selectedProduct.image}" alt="${selectedProduct.name}" width="300" />
@@ -111,51 +114,53 @@ if (selectedProduct) {
         <strong>Price: $${selectedProduct.price}</strong>
         <div class='product-btn'>
           <button class="buyNowBtn">Buy now</button>
-          <button class="addToCartBtn">Add to Cart</button>
+          ${alreadyInCart ? 
+            '<button class="removeFromCartBtn">Remove from Cart</button>' : 
+            '<button class="addToCartBtn">Add to Cart</button>'}
         </div>
       </div>
     </div>
   `;
 
-  // Attach event to the "Add to Cart" button
+  // Add to Cart functionality
   const addToCartBtn = document.querySelector(".addToCartBtn");
-  addToCartBtn.addEventListener("click", () => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Check if product is already in cart (using id)
-    const alreadyInCart = cart.some((item) => item.id === selectedProduct.id);
-
-    if (alreadyInCart) {
-      alert(`${selectedProduct.name} "This item is already in your cart. Please feel free to explore other amazing products!!!"`);
-    } else {
-      // Add the selectedProduct to the cart
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
       cart.push(selectedProduct);
-
-      // Save back to localStorage
       localStorage.setItem("cart", JSON.stringify(cart));
-
       alert(`${selectedProduct.name} successfully added to cart! Please kindly check your Cart`);
-    }
-  });
-} else {
-  product_container.innerHTML = "<p>Product not found.</p>";
-}
-
- // Attach event to the "Add to Cart" button
-const buyNowBtn = document.querySelector(".buyNowBtn");
-buyNowBtn.addEventListener("click", () => {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // Add current product if not already in cart
-  if (!cart.some((item) => item.id === selectedProduct.id)) {
-    cart.push(selectedProduct);
-    localStorage.setItem("cart", JSON.stringify(cart));
+      // Refresh to show the Remove button
+      location.reload();
+    });
   }
 
-  // Redirect to cart page
-  window.location.href = "cart.html";
-});
+  // Remove from Cart functionality
+  const removeFromCartBtn = document.querySelector(".removeFromCartBtn");
+  if (removeFromCartBtn) {
+    removeFromCartBtn.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart = cart.filter(item => item.id !== selectedProduct.id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${selectedProduct.name} has been removed from your cart. Please kindly continue Shopping!`);
+      // Refresh to show the Add button
+      location.reload();
+    });
+  }
+}
 
+// Buy Now functionality remains the same
+const buyNowBtn = document.querySelector(".buyNowBtn");
+if (buyNowBtn) {
+  buyNowBtn.addEventListener("click", () => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!cart.some((item) => item.id === selectedProduct.id)) {
+      cart.push(selectedProduct);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    window.location.href = "cart.html";
+  });
+}
 const productCart = document.querySelectorAll(".product");
 productCart.forEach((product) => {
   product.addEventListener("click", () => {

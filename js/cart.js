@@ -30,7 +30,7 @@ function renderCart() {
         </div>
         <div class ='item-actions'>
           <strong>Price: $${product.price * product.quantity}</strong>
-          <button class="remove-btn" data-index="${index}">Delete</button>
+          <button class="remove-btn" data-index="${index}">Remove</button>
         </div>
       </div>
     `

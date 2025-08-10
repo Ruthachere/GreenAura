@@ -61,15 +61,14 @@ body {
   align-self: center;
   align-items: center;
   list-style: none;
-  gap: 30px;
+  gap: 40px;
   margin: 0;
-  padding: 0px 40px;
 }
 
 li a {
   text-decoration: none;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 16px;
   font-family: "Poppins";
   color: black;
 }
@@ -105,7 +104,7 @@ li a {
   font-size: 30px;
 }
 .product-content p {
-  font-size: 18px;
+  font-size: 16px;
 }
 .product-content strong {
   font-size: 18px;
@@ -116,10 +115,10 @@ li a {
 }
 .buyNowBtn,
 .addToCartBtn {
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 10px 20px;
   width: max-content;
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: white;
   font-size: 18px;
   font-weight: 500;
@@ -140,14 +139,31 @@ li a {
   justify-content: center;
   align-self: center;
 }
+
 .featured-container h2 {
-  font-size: 40px;
-  text-align: center;
-}
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .featured-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+  }
 .featured-products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 30px;
   padding: 10px;
   justify-content: center;
 }
@@ -160,9 +176,26 @@ li a {
   gap: 10px;
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.removeFromCartBtn{
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  width: max-content;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Poppins";
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.featured-products .product-title {
+.product-title {
   text-align: left;
   display: flex;
   gap: 10px;
@@ -187,7 +220,12 @@ li a {
   object-fit: contain;
   border-radius: 12px;
   width: 100%;
-  height: 400px;
+  height: 300px;
+   transition: transform 0.3s ease ;
+  }
+  .product-image:hover{
+  transform: scale(1.1025);
+  z-index: 1;
 }
 footer {
   text-align: center;
@@ -195,4 +233,5 @@ footer {
   background: #222;
   color: white;
 }
+
 

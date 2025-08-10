@@ -107,59 +107,133 @@ if (selectedProduct) {
 
   product_container.innerHTML = `
     <div class='product-content'>
-      <img src="${selectedProduct.image}" alt="${selectedProduct.name}" width="300" />
+      <img src="${selectedProduct.image}" alt="${
+    selectedProduct.name
+  }" width="300" />
       <div class='product-details'>
         <h2>${selectedProduct.name}</h2>
         <p>${selectedProduct.description}</p>
         <strong>Price: $${selectedProduct.price}</strong>
         <div class='product-btn'>
           <button class="buyNowBtn">Buy now</button>
-          ${alreadyInCart ? 
-            '<button class="removeFromCartBtn">Remove from Cart</button>' : 
-            '<button class="addToCartBtn">Add to Cart</button>'}
+          ${
+            alreadyInCart
+              ? '<button class="removeFromCartBtn">Remove from Cart</button>'
+              : '<button class="addToCartBtn">Add to Cart</button>'
+          }
         </div>
       </div>
     </div>
   `;
 
-  // Add to Cart functionality
-  const addToCartBtn = document.querySelector(".addToCartBtn");
-  if (addToCartBtn) {
-    addToCartBtn.addEventListener("click", () => {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(selectedProduct);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${selectedProduct.name} successfully added to cart! Please kindly check your Cart`);
-      // Refresh to show the Remove button
-      location.reload();
-    });
-  }
+  //   // Add to Cart functionality
+  //   const addToCartBtn = document.querySelector(".addToCartBtn");
+  //   if (addToCartBtn) {
+  //     addToCartBtn.addEventListener("click", () => {
+  //       let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  //       cart.push(selectedProduct);
+  //       localStorage.setItem("cart", JSON.stringify(cart));
+  //       alert(`${selectedProduct.name} successfully added to cart! Please kindly check your Cart`);
+  //       // Refresh to show the Remove button
+  //       location.reload();
+  //     });
+  //   }
 
-  // Remove from Cart functionality
-  const removeFromCartBtn = document.querySelector(".removeFromCartBtn");
-  if (removeFromCartBtn) {
-    removeFromCartBtn.addEventListener("click", () => {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart = cart.filter(item => item.id !== selectedProduct.id);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${selectedProduct.name} has been removed from your cart. Please kindly continue Shopping!`);
-      // Refresh to show the Add button
-      location.reload();
-    });
-  }
-}
+  //   // Remove from Cart functionality
+  //   const removeFromCartBtn = document.querySelector(".removeFromCartBtn");
+  //   if (removeFromCartBtn) {
+  //     removeFromCartBtn.addEventListener("click", () => {
+  //       let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  //       cart = cart.filter(item => item.id !== selectedProduct.id);
+  //       localStorage.setItem("cart", JSON.stringify(cart));
+  //       alert(`${selectedProduct.name} has been removed from your cart. Please kindly continue Shopping!`);
+  //       // Refresh to show the Add button
+  //       location.reload();
+  //     });
+  //   }
+  // }
 
-// Buy Now functionality remains the same
-const buyNowBtn = document.querySelector(".buyNowBtn");
-if (buyNowBtn) {
-  buyNowBtn.addEventListener("click", () => {
+  // // Buy Now functionality remains the same
+  // const buyNowBtn = document.querySelector(".buyNowBtn");
+  // if (buyNowBtn) {
+  //   buyNowBtn.addEventListener("click", () => {
+  //     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  //     if (!cart.some((item) => item.id === selectedProduct.id)) {
+  //       cart.push(selectedProduct);
+  //       localStorage.setItem("cart", JSON.stringify(cart));
+  //     }
+  //     window.location.href = "cart.html";
+  //   });
+  // }
+  const updateCartButton = () => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (!cart.some((item) => item.id === selectedProduct.id)) {
-      cart.push(selectedProduct);
-      localStorage.setItem("cart", JSON.stringify(cart));
+    const alreadyInCart = cart.some((item) => item.id === selectedProduct.id);
+    const productBtnContainer = document.querySelector(".product-btn");
+
+    if (productBtnContainer) {
+      productBtnContainer.innerHTML = `
+      <button class="buyNowBtn">Buy now</button>
+      ${
+        alreadyInCart
+          ? '<button class="removeFromCartBtn">Remove from Cart</button>'
+          : '<button class="addToCartBtn">Add to Cart</button>'
+      }
+    `;
+
+      // Add to Cart functionality
+      const addToCartBtn = document.querySelector(".addToCartBtn");
+      if (addToCartBtn) {
+        addToCartBtn.addEventListener("click", () => {
+          cart.push(selectedProduct);
+          localStorage.setItem("cart", JSON.stringify(cart));
+       alert(`${selectedProduct.name} successfully added to cart! Please kindly check your Cart`);
+          updateCartButton(); // Update the button without refresh
+        });
+      }
+
+      // Remove from Cart functionality
+      const removeFromCartBtn = document.querySelector(".removeFromCartBtn");
+      if (removeFromCartBtn) {
+        removeFromCartBtn.addEventListener("click", () => {
+          cart = cart.filter((item) => item.id !== selectedProduct.id);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert(
+            `${selectedProduct.name} has been removed from your cart. Please kindly continue Shopping!`
+          );
+          updateCartButton(); // Update the button without refresh
+        });
+      }
     }
-    window.location.href = "cart.html";
-  });
+  };
+
+  // Initial setup
+  updateCartButton();
+
+  // Buy Now functionality remains the same
+  const buyNowBtn = document.querySelector(".buyNowBtn");
+  if (buyNowBtn) {
+    buyNowBtn.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (!cart.some((item) => item.id === selectedProduct.id)) {
+        cart.push(selectedProduct);
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+      window.location.href = "cart.html";
+    });
+  }
+
+  // Notification function (optional improvement)
+  function showNotification(message, type) {
+    // Implement your preferred notification system here
+    // Could be a toast notification, alert, or other UI element
+    alert(
+      `${selectedProduct.name} has been removed from your cart. Please kindly continue Shopping!`
+    );
+    console.log(`${type}: ${message}`);
+    // Example using alert (replace with your UI solution):
+
+    alert(message);
+  }
 }
 const productCart = document.querySelectorAll(".product");
 productCart.forEach((product) => {
